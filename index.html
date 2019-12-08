@@ -77,8 +77,8 @@ li.header a.header:hover {
   margin: 4px 2px;
   cursor: pointer;
   position: relative;
-  right: 200px;
-  bottom: 400px;
+  right: 250px;
+  bottom: 300px;
 }
 .next_button {
   background-color: #3E8EDE;
@@ -92,10 +92,11 @@ li.header a.header:hover {
   margin: 4px 2px;
   cursor: pointer;
   position: relative;
-  left: 200px;
-  bottom: 400px;
+  left: 250px;
+  bottom: 300px;
 }
 #slideshowContainer {
+	align-self: center;
     width: 60%;
     margin: 100px auto 50px auto;
     /*display: inline-block;*/
@@ -170,6 +171,10 @@ li.header a.header:hover {
 		if (rest_num == rests.length) {
 			rest_num = 0;
 		}
+	}
+	function rest_chosen() {
+		var curr_rest = rests[restnum];
+		var cuisine = cuisines[rest_num];
 	}
 </script>
 </body>
