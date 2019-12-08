@@ -3,31 +3,9 @@
 <head>
 <meta charset="utf-8">
 <title>Top Chart</title>
+	<link href="common.css" rel="stylesheet" type="text/css">
 	<style>
-		ul.header 	{
-						font-size: 4vmin;
-						list-style-type: none;
-						overflow: hidden;
-						background-color: #3E8EDE;
-						position: fixed;
-						top: 0;
-						width: 100%;
-						margin: 0;
-						padding: 0;
-					}
-		li.header 	{
-						float: left;
-					}
-		li.header a.header {
-						display: block;
-						color: #FFF;
-						text-align: center;
-						padding: 5vmin;
-						text-decoration: none;
-					}
-		li.header a.header:hover {
-						color: #ffbadc;
-					}
+
 		h1.chart	{
 						text-align: center;
 						color: #3E8EDE;
@@ -67,29 +45,35 @@
 					
 						display: block;
 						width: 100%;
-						border: none;
+						
 						background-color: #3E8EDE;
 						padding: 10px 10px;
 						text-align: center;
 						color: #FFFFFF;
 						font-size: 24px;
+						border-style: soild;
+						border-color: #3E8EDE;
 		
 					}
 		form.block	{
 						font-size: 30px;
 						text-align: center;
-						border-style: dotted;
-						border-color: #835C3B;
+
 						margin: auto;
 						width: 50%;
 					}
 		div.dropdown{
 						margin: 50px;
 					}
-					
+		input.filter{
+		
+						border: none;
+						
+					}
 		input.filter:hover {
 						background-color: #835C3B;
 						color: #FFF;
+						border-color: #835C3B;
 					}
 
 		
@@ -102,8 +86,7 @@
 		<li class="header"><a class="header" href="statistics.html">Statistics</a></li>
 		<li class="header"><a class="header" href="about_us.html">About Us</a></li>
 	</ul>
-
-	</br></br></br></br></br></br></br></br>
+	</br>
 	<h1 class="chart">Best of JumboBites</h1>
 	
 	<div class="dropdown">
@@ -143,7 +126,15 @@
 		</ol>
 	</div>
 	</div>
-	
+	<div id="footer">
+    <div id="legal">
+        © 2019 SimpleSalad™ Inc. All Rights Reserved.
+    </div>
+    <div id="questions">
+        Have any questions?
+        <a href="contact.html" class="footer_link">Contact us</a>
+    </div>
+</div>
 	
 	<script language="javascript" type="text/javascript">
 		function filter(){
