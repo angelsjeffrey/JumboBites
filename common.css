@@ -34,8 +34,6 @@ li.header a.header:hover {
   color: #ffbadc;
 }
 #footer {
-	position:absolute;
-    bottom:0;
     margin: 0;
     width: 100%;
     height: 20px;
@@ -49,7 +47,9 @@ li.header a.header:hover {
     width: 50%;
     text-align: left;
     padding-left: 3%;
+    color: #FFF;
 }
+
 #questions {
     font-size: 10px;
     float: right;
@@ -57,6 +57,7 @@ li.header a.header:hover {
     text-align: right;
     padding-right: 3%;
 }
+
 .footer_link {
     color: #FFFFFF;
 }
