@@ -65,7 +65,7 @@ li.header a.header:hover {
 	margin: auto;
 	padding: 1vw;
 }
-.output_button {
+.selected_button {
   background-color: #3E8EDE;
   border: none;
   color: white;
@@ -76,16 +76,24 @@ li.header a.header:hover {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-}
-.output_button next {
   position: relative;
-  left: 570px;
-  bottom: 300px;
+  right: 200px;
+  bottom: 400px;
 }
-.output_button selected {
+.next_button {
+  background-color: #3E8EDE;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
   position: relative;
-  left: 270px;
-  bottom: 300px;
+  left: 200px;
+  bottom: 400px;
 }
 #slideshowContainer {
     width: 60%;
@@ -99,7 +107,7 @@ li.header a.header:hover {
 .slideshow img {
     padding: 15px;
     /*border: 1px solid #ccc;*/
-    background-color: #8BCD32;
+    background-color: #3E8EDE;
 }
 </style>
 </head>
@@ -124,10 +132,8 @@ li.header a.header:hover {
 		</div>
 	</div>
 </div>
-<div class = "output_button">
-	<button onclick= "rest_chosen()"class="next">Sounds Good!</button>
-	<button onclick= "get_rest()"class="next">Next Restaurant</button>
-</div>
+<button onclick= "rest_chosen()"class="selected_button">Sounds Good!</button>
+<button onclick= "get_rest()"class="next_button">Next Restaurant</button>
 
 <script type="text/javascript">
 	var rest_num=0;
