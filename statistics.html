@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Top Chart</title>
+	<style>
+		ul.header 	{
+						font-size: 4vmin;
+						list-style-type: none;
+						overflow: hidden;
+						background-color: #3E8EDE;
+						position: fixed;
+						top: 0;
+						width: 100%;
+						margin: 0;
+						padding: 0;
+					}
+		li.header 	{
+						float: left;
+					}
+		li.header a.header {
+						display: block;
+						color: #FFF;
+						text-align: center;
+						padding: 5vmin;
+						text-decoration: none;
+					}
+		li.header a.header:hover {
+						color: #ffbadc;
+					}
+		h1.chart	{
+						text-align: center;
+						color: #3E8EDE;
+					}
+		div.cuisine	{
+						
+						text-align: center;
+						width: 100%;
+						height: auto;
+					}
+		div.chart	{
+						width: 100%;
+						height: auto;
+					}
+		div.block	{
+						background-color: #3E8EDE;
+						margin: 50px;
+						padding: 50px 10px;
+						text-align: center;
+						color: #FFF;
+
+					}
+		ul.clist	{
+						margin: 0;
+						padding: 0;
+						list-style-type: none; 
+						font-size: 24px;
+					}
+		ol.rlist	{
+						margin: 0;
+						padding: 0;
+						list-style-type: none; 
+						font-size: 40px;
+					}
+
+		.filter		{
+					
+						display: block;
+						width: 100%;
+						border: none;
+						background-color: #3E8EDE;
+						padding: 10px 10px;
+						text-align: center;
+						color: #FFFFFF;
+						font-size: 24px;
+		
+					}
+		form.block	{
+						font-size: 30px;
+						text-align: center;
+						border-style: dotted;
+						border-color: #3E8EDE;
+						margin: auto;
+						width: 50%;
+					}
+		div.dropdown{
+						margin: 50px;
+					}
+
+		
+		
+	</style>
+</head>
+<body>
+	<ul class="header">
+		<li class="header"><a class="header" href="#index.html">JumboBites</a></li>
+		<li class="header"><a class="header" href="#statistics.html">Statistics</a></li>
+		<li class="header"><a class="header" href="#about_us.html">About Us</a></li>
+	</ul>
+
+	</br></br></br></br></br></br></br></br>
+	<h1 class="chart">Best of JumboBites</h1>
+	
+	<div class="dropdown">
+	<form class="block">
+		<select id="category" class="filter" style="background-color: #FFF; color: #3E8EDE">
+			<option value="All">All</option>
+			<option value="182">Breakfast</option>
+            <option value="168">Burger</option>
+            <option value="25">Chinese</option>
+            <option value="45">French</option>
+            <option value="156">Greek</option>
+            <option value="148">Indian</option>
+            <option value="55">Italian</option>
+            <option value="60">Japanese</option>
+            <option value="67">Korean</option>
+            <option value="70">Mediterranean</option>
+            <option value="73">Mexican</option>
+            <option value="137">Middle Eastern</option>
+            <option value="82">Pizza</option>
+            <option value="998">Salad</option>
+            <option value="89">Spanish</option>
+            <option value="308">Vegetarian</option>
+            <option value="99">Vietnamese</option>
+		</select>
+		<input type="button" class="filter" onclick="filter()" value="Filter">
+	</form>
+	</div>
+	
+	<div class="chart">
+	<div class="block">
+		<ol class="rlist">
+			<li id="rest1"> Restaurant 1 </li>
+			<li id="rest2"> Restaurant 2 </li>
+			<li id="rest3"> Restaurant 3 </li>
+			<li id="rest4"> Restaurant 4 </li>
+			<li id="rest5"> Restaurant 5 </li>
+		</ol>
+	</div>
+	</div>
+	
+	
+	<script language="javascript" type="text/javascript">
+		function filter(){
+			var cuisine = document.getElementById("category");
+			if (cuisine == "All"){
+				top1 = "One";
+				top2 = "Two";
+				top3 = "Three";
+				top4 = "Four";
+				top5 = "Five";
+				document.getElementById("rest1").innerHTML = top1;
+				document.getElementById("rest2").innerHTML = top2;
+				document.getElementById("rest3").innerHTML = top3;
+				document.getElementById("rest4").innerHTML = top4;
+				document.getElementById("rest5").innerHTML = top5;
+			}
+		}
+		
+	</script>
+</body>
+</html>
