@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Restaurants</title>
+<style type="text/css">
+body{
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+}
+body {
+	margin-top: 15vmin;
+}
+ul.header {
+  font-size: 4vmin;
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #3E8EDE;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+li.header {
+  float: left;
+}
+li.header a.header {
+  display: block;
+  color: #FFF;
+  text-align: center;
+  padding: 5vmin;
+  text-decoration: none;
+}
+li.header a.header:hover {
+  color: #ffbadc;
+}
+h1 {
+	color: #3E8EDE;
+	padding: 0;
+}
+.rest_name {
+	color: #3E8EDE;
+	font-size: 3vw;
+	padding: .4vw;
+
+}
+.cuisine_name {
+	color: #3E8EDE;
+	font-size: 2vw;
+	padding: .2vw;
+}
+.price_range {
+	color: #3E8EDE;
+	font-size: 2vw;
+	padding: .2vw;
+
+}
+.rest_img{
+	height: 50vmin;
+	width: 50vmin; 
+	margin: auto;
+	padding: 1vw;
+}
+.next {
+  background-color: #3E8EDE;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+</style>
+</head>
+
+<body>
+<ul class="header">
+  <li class="header"><a class="header" href="#index.html">JumboBites</a></li>
+  <li class="header"><a class="header" href="#statistics.html">Statistics</a></li>
+  <li class="header"><a class="header" href="#about_us.html">About Us</a></li>
+</ul>
+<div class= "rest_name" id= "rest_name"></div>
+<div class= "cuisine_name"id= "cuisine_name"></div>
+<div class= "price_range"id= "price_range"></div>
+<img class= "rest_img" id="rest_img"> <br>
+<button onclick= "get_rest()"class="next">Next Restaurant</button>
+
+
+<script language="javascript" type="text/javascript">
+	var rest_num=0;
+	get_rest();
+	function get_rest() {
+		var rests = ["Picante", "Burgers King"];
+		var cuisines = ["Mexican", "Burgers"];
+		var prices = [10, 7]
+		var images = ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg/1280px-001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg", "https://www.thespruceeats.com/thmb/xZU__qGyThuUAq8mTosBd1cmLAs=/1333x1000/smart/filters:no_upscale()/juicy-baked-burgers-3052097-7-5b1054308e1b6e0036bc6cd1.jpg"]
+		var chosen_rest = rests[rest_num];
+		var chosen_cuisine = "Cuisine: " + cuisines[rest_num];
+		var chosen_price = "Price: $" + prices[rest_num];
+		var image_source = images[rest_num];
+		document.getElementById("rest_name").innerHTML = chosen_rest;
+		document.getElementById("cuisine_name").innerHTML = chosen_cuisine;
+		document.getElementById("price_range").innerHTML = chosen_price;
+		document.getElementById("rest_img").src= image_source;
+		rest_num = rest_num + 1;
+		if (rest_num == rests.length) {
+			rest_num = 0;
+		}
+	}
+</script>
+</body>
+</html>
