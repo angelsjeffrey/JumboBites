@@ -86,6 +86,11 @@
 		div.dropdown{
 						margin: 50px;
 					}
+					
+		input.filter:hover {
+						background-color: #835C3B;
+						color: #FFF;
+					}
 
 		
 		
@@ -93,9 +98,9 @@
 </head>
 <body>
 	<ul class="header">
-		<li class="header"><a class="header" href="#index.html">JumboBites</a></li>
-		<li class="header"><a class="header" href="#statistics.html">Statistics</a></li>
-		<li class="header"><a class="header" href="#about_us.html">About Us</a></li>
+		<li class="header"><a class="header" href="index.html">JumboBites</a></li>
+		<li class="header"><a class="header" href="statistics.html">Statistics</a></li>
+		<li class="header"><a class="header" href="about_us.html">About Us</a></li>
 	</ul>
 
 	</br></br></br></br></br></br></br></br>
@@ -104,7 +109,7 @@
 	<div class="dropdown">
 	<form class="block">
 		<select id="category" class="filter" style="background-color: #FFF; color: #3E8EDE">
-			<option value="All">All</option>
+			<option value="All">All Cuisine</option>
 			<option value="182">Breakfast</option>
             <option value="168">Burger</option>
             <option value="25">Chinese</option>
@@ -143,12 +148,13 @@
 	<script language="javascript" type="text/javascript">
 		function filter(){
 			var cuisine = document.getElementById("category");
-			if (cuisine == "All"){
-				top1 = "One";
-				top2 = "Two";
-				top3 = "Three";
-				top4 = "Four";
-				top5 = "Five";
+			var selected = cuisine.options[cuisine.selectedIndex].value;
+			if (selected == "All"){
+				top1 = "Test One";
+				top2 = "Test Two";
+				top3 = "Test Three";
+				top4 = "Test Four";
+				top5 = "Test Five";
 				document.getElementById("rest1").innerHTML = top1;
 				document.getElementById("rest2").innerHTML = top2;
 				document.getElementById("rest3").innerHTML = top3;
