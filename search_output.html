@@ -3,6 +3,8 @@
 <head>
 <title>Restaurants</title>
 <style type="text/css">
+<script src="jquery/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="jquery/jquery.cycle.all.js"></script>
 body{
     font-family: Roboto, Arial, Helvetica, sans-serif;
     text-align: center;
@@ -37,10 +39,6 @@ li.header a.header {
 }
 li.header a.header:hover {
   color: #ffbadc;
-}
-h1 {
-	color: #3E8EDE;
-	padding: 0;
 }
 .rest_name {
 	color: #3E8EDE;
@@ -77,7 +75,20 @@ h1 {
   margin: 4px 2px;
   cursor: pointer;
 }
-
+#slideshowContainer {
+    width: 60%;
+    margin: 100px auto 50px auto;
+    /*display: inline-block;*/
+}
+.slideshow {
+    /*height: auto;*/
+    border: none;
+}
+.slideshow img {
+    padding: 15px;
+    /*border: 1px solid #ccc;*/
+    background-color: #8BCD32;
+}
 </style>
 </head>
 
@@ -90,26 +101,49 @@ h1 {
 <div class= "rest_name" id= "rest_name"></div>
 <div class= "cuisine_name"id= "cuisine_name"></div>
 <div class= "price_range"id= "price_range"></div>
-<img class= "rest_img" id="rest_img"> <br>
+<div id="slideshowContainer">
+	<div class="slideshow">
+		<img class= "rest_img" id="rest_img1">
+		<img class= "rest_img" id="rest_img2">
+		<img class= "rest_img" id="rest_img3">
+		<img class= "rest_img" id="rest_img4">
+		<img class= "rest_img" id="rest_img5">                 
+	</div>
+</div>
 <button onclick= "get_rest()"class="next">Next Restaurant</button>
 
 
-<script language="javascript" type="text/javascript">
+<script type="text/javascript">
 	var rest_num=0;
 	get_rest();
+    $(document).ready(function() {	
+        $('.slideshow').cycle({
+            fx: 'fade',
+            timeout: 1000,
+            pause: 1,
+        });
+    });
 	function get_rest() {
 		var rests = ["Picante", "Burgers King"];
 		var cuisines = ["Mexican", "Burgers"];
-		var prices = [10, 7]
-		var images = ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg/1280px-001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg", "https://www.thespruceeats.com/thmb/xZU__qGyThuUAq8mTosBd1cmLAs=/1333x1000/smart/filters:no_upscale()/juicy-baked-burgers-3052097-7-5b1054308e1b6e0036bc6cd1.jpg"]
+		var prices = [10, 7];
+		var images = ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg/1280px-001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg", "https://www.thespruceeats.com/thmb/xZU__qGyThuUAq8mTosBd1cmLAs=/1333x1000/smart/filters:no_upscale()/juicy-baked-burgers-3052097-7-5b1054308e1b6e0036bc6cd1.jpg"];
 		var chosen_rest = rests[rest_num];
 		var chosen_cuisine = "Cuisine: " + cuisines[rest_num];
 		var chosen_price = "Price: $" + prices[rest_num];
-		var image_source = images[rest_num];
+		var image_source1 = images[0];
+		var image_source2 = images[1];
+		var image_source3 = images[0];
+		var image_source4 = images[1];
+		var image_source5 = images[0];
 		document.getElementById("rest_name").innerHTML = chosen_rest;
 		document.getElementById("cuisine_name").innerHTML = chosen_cuisine;
 		document.getElementById("price_range").innerHTML = chosen_price;
-		document.getElementById("rest_img").src= image_source;
+		document.getElementById("rest_img1").src= image_source1;
+		document.getElementById("rest_img2").src= image_source2;
+		document.getElementById("rest_img3").src= image_source3;
+		document.getElementById("rest_img4").src= image_source4;
+		document.getElementById("rest_img5").src= image_source5;
 		rest_num = rest_num + 1;
 		if (rest_num == rests.length) {
 			rest_num = 0;
