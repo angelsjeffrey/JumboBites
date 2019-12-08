@@ -79,7 +79,7 @@
 						font-size: 30px;
 						text-align: center;
 						border-style: dotted;
-						border-color: #3E8EDE;
+						border-color: #835C3B;
 						margin: auto;
 						width: 50%;
 					}
@@ -149,18 +149,20 @@
 		function filter(){
 			var cuisine = document.getElementById("category");
 			var selected = cuisine.options[cuisine.selectedIndex].value;
-			if (selected == "All"){
-				top1 = "Test One";
-				top2 = "Test Two";
-				top3 = "Test Three";
-				top4 = "Test Four";
-				top5 = "Test Five";
+			
+			getRest(selected);
+		}
+		function getRest(cuisine){
+				top1 = cuisine + " Test One";
+				top2 = cuisine + " Test Two";
+				top3 = cuisine + " Test Three";
+				top4 = cuisine + " Test Four";
+				top5 = cuisine + " Test Five";
 				document.getElementById("rest1").innerHTML = top1;
 				document.getElementById("rest2").innerHTML = top2;
 				document.getElementById("rest3").innerHTML = top3;
 				document.getElementById("rest4").innerHTML = top4;
 				document.getElementById("rest5").innerHTML = top5;
-			}
 		}
 		
 	</script>
