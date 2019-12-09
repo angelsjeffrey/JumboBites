@@ -78,9 +78,9 @@ body {
 }
 .slideshow {
 	display: inline-block;
-    height: auto;
-    width: auto;
     border: none;
+    width: 50vmin;
+    height: 50vmin;
 }
 .slideshow img {
     padding: 3vmin;
@@ -134,6 +134,13 @@ body {
 <script type="text/javascript">
 	var rest_num=0;
 	get_rest();
+    $(document).ready(function() {	
+        $('.slideshow').cycle({
+            fx: 'fade',
+            timeout: 1000,
+            pause: 1,
+        });
+    });
 	function get_rest() {
 		var rests = ["Picante", "Burgers King"];
 		var cuisines = ["Mexican", "Burgers"];
