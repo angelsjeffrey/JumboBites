@@ -127,7 +127,7 @@ select{
         Distance from Campus:<br><br>
         <input id="slider" type="range" min="0" max="10">
         <p><span id="demo"></span> Miles</p><br><br>
-        <input class = "button" type="submit" href="search.html" onclick="">
+        <input class = "button" type="submit" href="search.html" onclick="submit_form()">
     </form>
     <br><br>
 </div>
@@ -142,8 +142,16 @@ select{
     </div>
 </div>
 <script>
-    var slider = document.getElementById("slider");
-    var output = document.getElementById("demo");
+	function submit_form() {
+		var cuisine_name = document.getElementById("cuisine").value;
+		var distance = document.getElementById("slider").value;
+		alert(cuisine_name);
+		alert(Distance);
+		var url = "https://angelsjeffrey.github.io/JumboBites/search.html?cuisine=" + cuisine_name + "distance=" + distance; 
+		location.href(url);
+	}
+	    var slider = document.getElementById("slider");
+	    var output = document.getElementById("demo");	
     output.innerHTML = slider.value; // Display the default slider value
 
     // Update the current slider value (each time you drag the slider handle)
