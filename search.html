@@ -2,176 +2,163 @@
 <html>
 <head>
 <title>Restaurants</title>
+<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet" type="text/css">
 <link href="common.css" rel="stylesheet" type="text/css">
-<script src="jquery/jquery-3.4.1.js"></script>
-<script type="text/javascript" src="jquery/jquery.cycle.all.js"></script>
 <style type="text/css">
-body {
-	margin-top: 14vh;
-}
-.container {
-	text-align: center;
-}
 .rest_name {
 	color: #3E8EDE;
-	font-size: 7vmin;
-	padding: .75vh;
+	font-size: 3vw;
+	padding: .4vw;
+
 }
 .cuisine_name {
 	color: #3E8EDE;
-	font-size: 4vmin;
-	padding: .75vh;
+	font-size: 2vw;
+	padding: .2vw;
 }
 .price_range {
 	color: #3E8EDE;
-	font-size: 4vmin;
-	padding: .75vh;
+	font-size: 2vw;
+	padding: .2vw;
 
 }
 .rest_img{
 	height: 50vmin;
 	width: 50vmin; 
 	margin: auto;
-	padding: 2vh;
+	padding: 1vw;
 }
-.selected_button {
+.next {
   background-color: #3E8EDE;
   border: none;
   color: white;
-  padding: 1vmin;
+  padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 2.7vmin;
-  margin: 0px 2px;
+  font-size: 16px;
+  margin: 4px 2px;
   cursor: pointer;
-  position: absolute;
-  left: 5vw;
-  top: 58vmin;
-  width: 15vw;
-  height: 15vh;
 }
-.next_button {
-  background-color: #3E8EDE;
-  border: none;
-  color: white;
-  padding: 1vmin;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 2.7vmin;
-  margin: 0px 2px;
-  cursor: pointer;
-  position: absolute;
-  right: 5vmin;
-  top: 58vmin;
-  width: 15vw;
-  height: 15vh;
+#slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 70%;
+    height: 20px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
 }
-#slideshowContainer {
-	padding: 1vh 4vw;
-    width: 70vw;
-    height: 60vh;
-    margin: auto;
+
+#slider:hover {
+    opacity: 1;
+}
+
+#slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 20px; /* Set a specific slider handle width */
+    height: 20px; /* Slider handle height */
+    background: #4F91CD; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+#slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #4F91CD; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+select{
+	text-align: center;
+}
+#cuisine {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    outline: none;
+    height: 5vh;
+    width: 30%;
+    font-size: 3vh;
+    text-decoration-color: 
     text-align: center;
-    display: inline-block;
-    position: relative;
 }
-.slideshow {
-	display: inline-block;
-    border: none;
-    width: 50vmin;
-    height: 50vmin;
+.button {
+  background-color: #3E8EDE;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
-.slideshow img {
-    padding: 3vmin;
-    width: 50vmin;
-    height: 50vmin;
-    background-color: #3E8EDE;
-}
+#form_wrapper {
+	color: #3E8EDE;
+} 
 </style>
 </head>
-
 <body>
-<div id=".fl-page">
-	<ul class="header">
-	  <li class="header"><a class="header" href="index.html">JumboBites</a></li>
-	  <li class="header"><a class="header" href="statistics.html">Statistics</a></li>
-	  <li class="header"><a class="header" href="about_us.html">About Us</a></li>
-	</ul>
-	<div class = "container">
-		<div class= "rest_name" id= "rest_name"></div>
-		<div class= "cuisine_name"id= "cuisine_name"></div>
-		<div class= "price_range"id= "price_range"></div>
-		<div id="slideshowContainer">
-			<div class="slideshow">
-				<img class= "rest_img" id="rest_img0"> 
-				<img class= "rest_img" id="rest_img1">
-				<img class= "rest_img" id="rest_img2">
-				<img class= "rest_img" id="rest_img3">
-				<img class= "rest_img" id="rest_img4">
-				<img class= "rest_img" id="rest_img5">
-				<img class= "rest_img" id="rest_img6">
-				<img class= "rest_img" id="rest_img7">
-				<img class= "rest_img" id="rest_img8">
-				<img class= "rest_img" id="rest_img9">
-			</div>
-		</div>
-	</div>
-<button onclick= "rest_chosen()"class="selected_button">Sounds Good!</button>
-<button onclick= "get_rest()"class="next_button">Next Restaurant</button>
+<ul class="header">
+  <li class="header"><a class="header" href="index.html">JumboBites</a></li>
+  <li class="header"><a class="header" href="statistics.html">Statistics</a></li>
+  <li class="header"><a class="header" href="about_us.html">About Us</a></li>
+</ul>
+<div id="form_wrapper">
+    <form>
+        <h1>Cuisine:<h1><br><br>
+        <select required id="cuisine" size="1">
+            <option value="Breakfast">Breakfast</option>
+            <option value="Burger">Burger</option>
+            <option value="Chinese">Chinese</option>
+            <option value="French">French</option>
+            <option value="Greek">Greek</option>
+            <option value="Indian">Indian</option>
+            <option value="Italian">Italian</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Korean">Korean</option>
+            <option value="Mediterranean">Mediterranean</option>
+            <option value="Mexican">Mexican</option>
+            <option value="Middle Eastern">Middle Eastern</option>
+            <option value="Pizza">Pizza</option>
+            <option value="Salad">Salad</option>
+            <option value="Spanish">Spanish</option>
+            <option value="Vegetarian">Vegetarian</option>
+            <option value="Vietnamese">Vietnamese</option>
+        </select><br><br><br>
+        <h2>Distance from Campus:<h2><br><br>
+        <input id="slider" type="range" min="0" max="10">
+        <p><span id="demo"></span> Miles</p><br><br>
+        <input class = "button" type="reset" onclick="submit_form()">
+    </form>
+    <br><br><br>
 </div>
-<div id = "fl-page-footer-wrap">
-	<div id="footer">
-	    <div id="legal">
-	        © 2019 SimpleSalad™ Inc. All Rights Reserved.
-	    </div>
-	    <div id="questions">
-	        <a href="contact.html" class="footer_link">Wondering who we are?</a>
-	    </div>
-	</div>
+<div id="footer">
+    <div id="legal">
+        © 2019 SimpleSalad™ Inc. All Rights Reserved.
+    </div>
+    <div id="questions">
+        <a href="contact.html" class="footer_link">Wondering who we are?</a>
+    </div>
 </div>
 
-<script type="text/javascript">
-	const urlParams = new URLSearchParams(window.location.search);
-	const cuisine = urlParams.get('cuisine');
-	const distance = urlParams.get('distance');
-	alert(cuisine);
-	var rest_num=0;
-	get_rest();
-    $(document).ready(function() {	
-        $('.slideshow').cycle({
-            fx: 'fade',
-            timeout: 1000,
-            pause: 1,
-        });
-    });
-	function get_rest() {
-		var rests = ["Picante", "Burgers King"];
-		var cuisines = ["Mexican", "Burgers"];
-		var prices = [10, 7];
-		var images = ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg/1280px-001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg", "https://www.thespruceeats.com/thmb/xZU__qGyThuUAq8mTosBd1cmLAs=/1333x1000/smart/filters:no_upscale()/juicy-baked-burgers-3052097-7-5b1054308e1b6e0036bc6cd1.jpg"];
-		var chosen_rest = rests[rest_num];
-		var chosen_cuisine = "Cuisine: " + cuisines[rest_num];
-		var chosen_price = "Price: $" + prices[rest_num];
-		document.getElementById("rest_name").innerHTML = chosen_rest;
-		document.getElementById("cuisine_name").innerHTML = chosen_cuisine;
-		document.getElementById("price_range").innerHTML = chosen_price;
-		for (var i = 0; i < 10; i++) {
-			image_pos = i % images.length;
-			var identifier = "rest_img" + i;
-			document.getElementById(identifier).src= images[image_pos];
-		}
-		rest_num++;
-		if (rest_num == rests.length) {
-			rest_num = 0;
-		}
+<script>
+	function submit_form() {
+		var cuisine_name = document.getElementById("cuisine").value;
+		var distance = document.getElementById("slider").value;
+		var url = "https://angelsjeffrey.github.io/JumboBites/search.html?cuisine=" + cuisine_name + "&distance=" + distance;
+		window.location.href = url;
 	}
-	function rest_chosen() {
-		var curr_rest = rests[restnum];
-		var cuisine = cuisines[rest_num];
-		window.location.href = "https://angelsjeffrey.github.io/JumboBites";
-	}
+	var slider = document.getElementById("slider");
+	var output = document.getElementById("demo");	
+    output.innerHTML = slider.value; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider.oninput = function() {
+    output.innerHTML = this.value;
+}
 </script>
 </body>
 </html>
