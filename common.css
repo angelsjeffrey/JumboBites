@@ -7,7 +7,9 @@ body{
     padding: 0;
     height: 100%;
 }
-
+body{
+    margin-top: 15vh;
+}
 ul.header {
   font-size: 4vh;
   list-style-type: none;
