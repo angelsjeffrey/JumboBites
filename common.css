@@ -40,6 +40,8 @@ li.header a.header:hover {
     background-color: #3E8EDE;
     display: flex;
     align-items: center;
+    position:fixed;
+    bottom:0;left:0;right:0;
 }
 #legal {
     font-size: 10px;
