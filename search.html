@@ -1,3 +1,5 @@
+http://responsiveslides.com/
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -133,8 +135,10 @@ body {
 </div>
 
 <script type="text/javascript">
-	var url = console.log(window.location.search);
-	alert(url);
+	const urlParams = new URLSearchParams(window.location.search);
+	const cuisine = urlParams.get('cuisine');
+	const distance = urlParams.get('distance');
+	alert(cuisine);
 	var rest_num=0;
 	get_rest();
     $(document).ready(function() {	
@@ -168,6 +172,7 @@ body {
 	function rest_chosen() {
 		var curr_rest = rests[restnum];
 		var cuisine = cuisines[rest_num];
+		window.location.href = "https://angelsjeffrey.github.io/JumboBites";
 	}
 </script>
 </body>
