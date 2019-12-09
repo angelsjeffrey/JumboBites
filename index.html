@@ -6,8 +6,78 @@
 <script src="jquery/jquery-3.4.1.js"></script>
 <script type="text/javascript" src="jquery/jquery.cycle.all.js"></script>
 <style type="text/css">
+body{
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+#wrap {
+  min-height: 100%;
+}
+#main {
+  overflow: auto;
+  padding-bottom: 20px;
+}
+ul.header {
+  font-size: 4vh;
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #3E8EDE;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+li.header {
+  float: left;
+}
+li.header a.header {
+  display: block;
+  color: #FFF;
+  text-align: center;
+  padding: 4vh 4vw;
+  text-decoration: none;
+}
+li.header a.header:hover {
+  color: #ffbadc;
+}
+#footer {
+	position: relative;
+	margin-top: -20px;
+	height: 20px;
+	clear: both;
+	width: 100%;
+	background-color: #3E8EDE;
+	display: flex;
+	align-items: center;
+}
+#legal {
+    font-size: 10px;
+    float: left;
+    width: 50%;
+    text-align: left;
+    padding-left: 3%;
+    color: #FFF;
+}
+
+#questions {
+    font-size: 10px;
+    float: right;
+    width: 50%;
+    text-align: right;
+    padding-right: 3%;
+}
+
+.footer_link {
+    color: #FFFFFF;
+}
 body {
-	margin-top: 15vmin;
+	margin-top: 14vh;
 }
 .container {
 	text-align: center;
@@ -53,19 +123,19 @@ body {
   background-color: #3E8EDE;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 1vh 1vw;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 3vmin;
+  margin: 0px 2px;
   cursor: pointer;
   position: absolute;
   left: 70%;
   bottom: 33%;
 }
 #slideshowContainer {
-    width: 60vw;
+    width: 70vw;
     height: 60vh;
     margin: auto;
     text-align: center;
@@ -73,20 +143,22 @@ body {
 }
 .slideshow {
 	display: inline-block;
-    /*height: auto;*/
+    height: auto;
+    width: auto;
     border: none;
 }
 .slideshow img {
-    padding: 15px;
-    width: 60vmin;
-    height: 60vmin;
-    /*border: 1px solid #ccc;*/
+    padding: 3vmin;
+    width: 25vw;
+    height: 25vw;
     background-color: #3E8EDE;
 }
 </style>
 </head>
 
 <body>
+<div id="wrap">
+<div id="main">
 <ul class="header">
   <li class="header"><a class="header" href="index.html">JumboBites</a></li>
   <li class="header"><a class="header" href="statistics.html">Statistics</a></li>
@@ -99,7 +171,7 @@ body {
 	<div id="slideshowContainer">
 		<div class="slideshow">
 			<img class= "rest_img" id="rest_img0">			                 
-		<!-- 	<img class= "rest_img" id="rest_img1">
+			<img class= "rest_img" id="rest_img1">
 			<img class= "rest_img" id="rest_img2">
 			<img class= "rest_img" id="rest_img3">
 			<img class= "rest_img" id="rest_img4">
@@ -107,9 +179,11 @@ body {
 			<img class= "rest_img" id="rest_img6">
 			<img class= "rest_img" id="rest_img7">
 			<img class= "rest_img" id="rest_img8">
-			<img class= "rest_img" id="rest_img9"> -->
+			<img class= "rest_img" id="rest_img9">
 		</div>
 	</div>
+</div>
+</div>
 </div>
 <button onclick= "rest_chosen()"class="selected_button">Sounds Good!</button>
 <button onclick= "get_rest()"class="next_button">Next Restaurant</button>
