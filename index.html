@@ -145,10 +145,8 @@ select{
 	function submit_form() {
 		var cuisine_name = document.getElementById("cuisine").value;
 		var distance = document.getElementById("slider").value;
-		alert(cuisine_name);
-		alert(Distance);
-		var url = "https://angelsjeffrey.github.io/JumboBites/search.html?cuisine=" + cuisine_name + "distance=" + distance; 
-		location.href(url);
+		var url = "https://angelsjeffrey.github.io/JumboBites/search.html?cuisine=" + cuisine_name + "distance=" + distance;
+		window.location.href(url);
 	}
 	    var slider = document.getElementById("slider");
 	    var output = document.getElementById("demo");	
