@@ -94,6 +94,11 @@ select{
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+}
+#form_wrapper {
+	color: #3E8EDE;
+	font-size: 6vmin;
+} 
 </style>
 </head>
 <body>
@@ -104,7 +109,7 @@ select{
 </ul>
 <div id="form_wrapper">
     <form>
-        Cuisine:<br><br>
+        <h1>Cuisine:<h1><br><br>
         <select required id="cuisine" size="1">
             <option value="Breakfast">Breakfast</option>
             <option value="Burger">Burger</option>
@@ -124,12 +129,12 @@ select{
             <option value="Vegetarian">Vegetarian</option>
             <option value="Vietnamese">Vietnamese</option>
         </select><br><br><br>
-        Distance from Campus:<br><br>
+        <h2>Distance from Campus:<h2><br><br>
         <input id="slider" type="range" min="0" max="10">
         <p><span id="demo"></span> Miles</p><br><br>
-        <input class = "button" type="submit" onclick="submit_form()">
+        <input class = "button" type="reset" onclick="submit_form()">
     </form>
-    <br><br>
+    <br><br><br>
 </div>
 
 
@@ -145,12 +150,11 @@ select{
 	function submit_form() {
 		var cuisine_name = document.getElementById("cuisine").value;
 		var distance = document.getElementById("slider").value;
-		var url = "https://angelsjeffrey.github.io/JumboBites/search.html?cuisine=" + cuisine_name + "distance=" + distance;
-		alert(url);
+		var url = "https://angelsjeffrey.github.io/JumboBites/search.html?cuisine=" + cuisine_name + "&distance=" + distance;
 		window.location.href = url;
 	}
-	    var slider = document.getElementById("slider");
-	    var output = document.getElementById("demo");	
+	var slider = document.getElementById("slider");
+	var output = document.getElementById("demo");	
     output.innerHTML = slider.value; // Display the default slider value
 
     // Update the current slider value (each time you drag the slider handle)
