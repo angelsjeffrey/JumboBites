@@ -97,7 +97,6 @@ select{
 }
 #form_wrapper {
 	color: #3E8EDE;
-	font-size: 6vmin;
 } 
 </style>
 </head>
@@ -109,7 +108,7 @@ select{
 </ul>
 <div id="form_wrapper">
     <form>
-        <h1>Cuisine:<h1><br><br>
+        <h1>Cuisine:<h1>
         <select required id="cuisine" size="1">
             <option value="Breakfast">Breakfast</option>
             <option value="Burger">Burger</option>
@@ -128,16 +127,13 @@ select{
             <option value="Spanish">Spanish</option>
             <option value="Vegetarian">Vegetarian</option>
             <option value="Vietnamese">Vietnamese</option>
-        </select><br><br><br>
-        <h2>Distance from Campus:<h2><br><br>
+        </select><br><br>
+        <h2>Distance from Campus:<h2>
         <input id="slider" type="range" min="0" max="10">
         <p><span id="demo"></span> Miles</p><br><br>
-        <input class = "button" type="reset" onclick="submit_form()">
+        <input class = "button" value="Submit" type="reset" onclick="submit_form()">
     </form>
-    <br><br><br>
 </div>
-
-
 <div id="footer">
     <div id="legal">
         © 2019 SimpleSalad™ Inc. All Rights Reserved.
@@ -146,6 +142,7 @@ select{
         <a href="contact.html" class="footer_link">Wondering who we are?</a>
     </div>
 </div>
+
 <script>
 	function submit_form() {
 		var cuisine_name = document.getElementById("cuisine").value;
