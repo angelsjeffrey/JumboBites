@@ -118,13 +118,13 @@ body {
 			</div>
 		</div>
 	</div>
-<button onclick= "rest_chosen()"class="selected_button">Sounds Good!</button>
-<button onclick= "get_rest()"class="next_button">Next Restaurant</button>
+<button type="reset" onclick= "rest_chosen()" class="selected_button">Sounds Good!</button>
+<button onclick= "get_rest()" class="next_button">Next Restaurant</button>
 </div>
 <div id = "fl-page-footer-wrap">
 	<div id="footer">
 	    <div id="legal">
-	        © 2019 SimpleSalad™ Inc. All Rights Reserved.
+	        © 2019 JumboBites™ Inc. All Rights Reserved.
 	    </div>
 	    <div id="questions">
 	        <a href="contact.html" class="footer_link">Wondering who we are?</a>
@@ -137,6 +137,8 @@ body {
 	const cuisine = urlParams.get('cuisine');
 	const distance = urlParams.get('distance');
 	var rest_num=0;
+	var rests = ["Picante", "Burgers King"];
+	var cuisines = ["Mexican", "Burgers"];
 	get_rest();
     $(document).ready(function() {	
         $('.slideshow').cycle({
@@ -146,10 +148,8 @@ body {
         });
     });
 	function get_rest() {
-		var rests = ["Picante", "Burgers King"];
-		var cuisines = ["Mexican", "Burgers"];
-		var prices = [10, 7];
-		var images = ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg/1280px-001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg", "https://www.thespruceeats.com/thmb/xZU__qGyThuUAq8mTosBd1cmLAs=/1333x1000/smart/filters:no_upscale()/juicy-baked-burgers-3052097-7-5b1054308e1b6e0036bc6cd1.jpg"];
+	var prices = [10, 7];
+	var images = ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg/1280px-001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg", "https://www.thespruceeats.com/thmb/xZU__qGyThuUAq8mTosBd1cmLAs=/1333x1000/smart/filters:no_upscale()/juicy-baked-burgers-3052097-7-5b1054308e1b6e0036bc6cd1.jpg"];
 		var chosen_rest = rests[rest_num];
 		var chosen_cuisine = "Cuisine: " + cuisines[rest_num];
 		var chosen_price = "Price: $" + prices[rest_num];
@@ -167,7 +167,7 @@ body {
 		}
 	}
 	function rest_chosen() {
-		var curr_rest = rests[restnum];
+		var curr_rest = rests[rest_num];
 		var cuisine = cuisines[rest_num];
 		window.location.href = "https://angelsjeffrey.github.io/JumboBites";
 	}
