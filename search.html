@@ -6,8 +6,18 @@
 <script src="jquery/jquery-3.4.1.js"></script>
 <script type="text/javascript" src="jquery/jquery.cycle.all.js"></script>
 <style type="text/css">
+.page {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 20px;
+}
+.footer-wrap {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}
 body {
-	margin-top: 14vh;
+	margin-top: 15vh;
 }
 .container {
 	text-align: center;
@@ -32,7 +42,7 @@ body {
 	height: 50vmin;
 	width: 50vmin; 
 	margin: auto;
-	padding: 2vh;
+	padding: 2vmin;
 }
 .selected_button {
   background-color: #3E8EDE;
@@ -43,10 +53,9 @@ body {
   text-decoration: none;
   display: inline-block;
   font-size: 2.7vmin;
-  margin: 0px 2px;
   cursor: pointer;
   position: absolute;
-  left: 5vw;
+  left: 5vmin;
   top: 58vmin;
   width: 15vw;
   height: 15vh;
@@ -60,7 +69,6 @@ body {
   text-decoration: none;
   display: inline-block;
   font-size: 2.7vmin;
-  margin: 0px 2px;
   cursor: pointer;
   position: absolute;
   right: 5vmin;
@@ -68,11 +76,17 @@ body {
   width: 15vw;
   height: 15vh;
 }
+.selected_button:hover {
+	background-color: #835c3b;
+}
+.next_button:hover {
+	background-color: #835c3b;
+}
 #slideshowContainer {
-	padding: 1vh 4vw;
-    width: 70vw;
-    height: 60vh;
-    margin: auto;
+    width: 50vmin;
+    height: 50vmin;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
     display: inline-block;
     position: relative;
@@ -84,6 +98,8 @@ body {
     height: 50vmin;
 }
 .slideshow img {
+	margin-left: auto;
+    margin-right: auto;
     padding: 3vmin;
     width: 50vmin;
     height: 50vmin;
@@ -133,9 +149,13 @@ body {
 </div>
 
 <script type="text/javascript">
+	//var json = myjson;
 	const urlParams = new URLSearchParams(window.location.search);
 	const cuisine = urlParams.get('cuisine');
-	const distance = urlParams.get('distance');
+	const price = urlParams.get('price');
+	//do database request
+	//var range = my_json["Restaurants"].length;
+	//var chosen_rest = Math.random() * range / 1;
 	var rest_num=0;
 	var rests = ["Picante", "Burgers King"];
 	var cuisines = ["Mexican", "Burgers"];
@@ -150,6 +170,9 @@ body {
 	function get_rest() {
 	var prices = [10, 7];
 	var images = ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg/1280px-001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg", "https://www.thespruceeats.com/thmb/xZU__qGyThuUAq8mTosBd1cmLAs=/1333x1000/smart/filters:no_upscale()/juicy-baked-burgers-3052097-7-5b1054308e1b6e0036bc6cd1.jpg"];
+	// if (images.length == 0) {
+	// 	images = []
+	// }
 		var chosen_rest = rests[rest_num];
 		var chosen_cuisine = "Cuisine: " + cuisines[rest_num];
 		var chosen_price = "Price: $" + prices[rest_num];
@@ -171,6 +194,7 @@ body {
 		var cuisine = cuisines[rest_num];
 		window.location.href = "https://angelsjeffrey.github.io/JumboBites";
 	}
+
 </script>
 </body>
 </html>
