@@ -6,43 +6,21 @@
 <script src="jquery/jquery-3.4.1.js"></script>
 <script type="text/javascript" src="jquery/jquery.cycle.all.js"></script>
 <style type="text/css">
-.page {
-  position: relative;
-  min-height: 100vh;
-  padding-bottom: 20px;
-}
-.footer-wrap {
-  width: 100%;
-  position: absolute;
-  bottom: 0px;
-}
 body {
-	margin-top: 15vh;
+  margin-top: 15vh;
 }
 .container {
-	text-align: center;
+  text-align: center;
 }
 .rest_name {
-	color: #3E8EDE;
-	font-size: 7vmin;
-	padding: .75vh;
+  color: #3E8EDE;
+  font-size: 7vmin;
+  padding: .75vh;
 }
-.cuisine_name {
-	color: #3E8EDE;
-	font-size: 4vmin;
-	padding: .75vh;
-}
-.price_range {
-	color: #3E8EDE;
-	font-size: 4vmin;
-	padding: .75vh;
-
-}
-.rest_img{
-	height: 50vmin;
-	width: 50vmin; 
-	margin: auto;
-	padding: 2vmin;
+.rest_details {
+  color: #3E8EDE;
+  font-size: 4vmin;
+  padding: .75vh;
 }
 .selected_button {
   background-color: #3E8EDE;
@@ -56,7 +34,7 @@ body {
   cursor: pointer;
   position: absolute;
   left: 5vmin;
-  top: 58vmin;
+  top: 63vmin;
   width: 15vw;
   height: 15vh;
 }
@@ -72,37 +50,38 @@ body {
   cursor: pointer;
   position: absolute;
   right: 5vmin;
-  top: 58vmin;
+  top: 63vmin;
   width: 15vw;
   height: 15vh;
 }
 .selected_button:hover {
-	background-color: #835c3b;
+  background-color: #835c3b;
 }
 .next_button:hover {
-	background-color: #835c3b;
+  background-color: #835c3b;
 }
-#slideshowContainer {
+/*#slideshowContainer {
     width: 50vmin;
-    height: 50vmin;
+    height: 20vmin;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     display: inline-block;
     position: relative;
-}
+}*/
 .slideshow {
-	display: inline-block;
+    padding-top: 3vmin;
+    display: inline-block;
     border: none;
     width: 50vmin;
     height: 50vmin;
 }
 .slideshow img {
-	margin-left: auto;
+    margin-left: auto;
     margin-right: auto;
     padding: 3vmin;
-    width: 50vmin;
-    height: 50vmin;
+    width: 45vmin;
+    height: 45vmin;
     background-color: #3E8EDE;
 }
 </style>
@@ -110,90 +89,95 @@ body {
 
 <body>
 <div id=".fl-page">
-	<ul class="header">
-	  <li class="header"><a class="header" href="index.html">JumboBites</a></li>
-	  <li class="header"><a class="header" href="statistics.html">Statistics</a></li>
-	  <li class="header"><a class="header" href="about_us.html">About Us</a></li>
-	</ul>
-	<div class = "container">
-		<div class= "rest_name" id= "rest_name"></div>
-		<div class= "cuisine_name"id= "cuisine_name"></div>
-		<div class= "price_range"id= "price_range"></div>
-		<div id="slideshowContainer">
-			<div class="slideshow">
-				<img class= "rest_img" id="rest_img0"> 
-				<img class= "rest_img" id="rest_img1">
-				<img class= "rest_img" id="rest_img2">
-				<img class= "rest_img" id="rest_img3">
-				<img class= "rest_img" id="rest_img4">
-				<img class= "rest_img" id="rest_img5">
-				<img class= "rest_img" id="rest_img6">
-				<img class= "rest_img" id="rest_img7">
-				<img class= "rest_img" id="rest_img8">
-				<img class= "rest_img" id="rest_img9">
-			</div>
-		</div>
-	</div>
+  <ul class="header">
+    <li class="header"><a class="header" href="index.html">JumboBites</a></li>
+    <li class="header"><a class="header" href="statistics.html">Statistics</a></li>
+    <li class="header"><a class="header" href="about_us.html">About Us</a></li>
+  </ul>
+  <div class = "container">
+    <div class= "rest_name" id= "rest_name"></div>
+    <div class= "rest_details"id= "cuisine_name"></div>
+    <div class= "rest_details"id= "price_range"></div>
+    <div class= "rest_details" id= "location"></div>
+    <div id="slideshowContainer">
+      <div class="slideshow">
+        <img class= "rest_img" id="rest_img0"> 
+        <img class= "rest_img" id="rest_img1">
+        <img class= "rest_img" id="rest_img2">
+        <img class= "rest_img" id="rest_img3">
+        <img class= "rest_img" id="rest_img4">
+        <img class= "rest_img" id="rest_img5">
+        <img class= "rest_img" id="rest_img6">
+        <img class= "rest_img" id="rest_img7">
+        <img class= "rest_img" id="rest_img8">
+        <img class= "rest_img" id="rest_img9">
+      </div>
+    </div>
+  </div>
 <button type="reset" onclick= "rest_chosen()" class="selected_button">Sounds Good!</button>
 <button onclick= "get_rest()" class="next_button">Next Restaurant</button>
 </div>
+<br><br><br><br><br>
 <div id = "fl-page-footer-wrap">
-	<div id="footer">
-	    <div id="legal">
-	        © 2019 JumboBites™ Inc. All Rights Reserved.
-	    </div>
-	    <div id="questions">
-	        <a href="contact.html" class="footer_link">Wondering who we are?</a>
-	    </div>
-	</div>
+  <div id="footer">
+      <div id="legal">
+          © 2019 JumboBites™ Inc. All Rights Reserved.
+      </div>
+      <div id="questions">
+          <a href="contact.html" class="footer_link">Wondering who we are?</a>
+      </div>
+  </div>
 </div>
 
 <script type="text/javascript">
-	//var json = myjson;
-	const urlParams = new URLSearchParams(window.location.search);
-	const cuisine = urlParams.get('cuisine');
-	const price = urlParams.get('price');
-	//do database request
-	//var range = my_json["Restaurants"].length;
-	//var chosen_rest = Math.random() * range / 1;
-	var rest_num=0;
-	var rests = ["Picante", "Burgers King"];
-	var cuisines = ["Mexican", "Burgers"];
-	get_rest();
-    $(document).ready(function() {	
+  //var json = myjson;
+  const urlParams = new URLSearchParams(window.location.search);
+  const cuisine = urlParams.get('cuisine');
+  const price = urlParams.get('price');
+  //do database request
+  //var range = my_json["Restaurants"].length;
+  //var chosen_rest = Math.random() * range / 1;
+  var rest_num=0;
+  var rests = ["Picante", "Burgers King"];
+  var cuisines = ["Mexican", "Burgers"];
+  get_rest();
+    $(document).ready(function() {  
         $('.slideshow').cycle({
             fx: 'fade',
             timeout: 1000,
             pause: 1,
         });
     });
-	function get_rest() {
-	var prices = [10, 7];
-	var images = ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg/1280px-001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg", "https://www.thespruceeats.com/thmb/xZU__qGyThuUAq8mTosBd1cmLAs=/1333x1000/smart/filters:no_upscale()/juicy-baked-burgers-3052097-7-5b1054308e1b6e0036bc6cd1.jpg"];
-	// if (images.length == 0) {
-	// 	images = []
-	// }
-		var chosen_rest = rests[rest_num];
-		var chosen_cuisine = "Cuisine: " + cuisines[rest_num];
-		var chosen_price = "Price: $" + prices[rest_num];
-		document.getElementById("rest_name").innerHTML = chosen_rest;
-		document.getElementById("cuisine_name").innerHTML = chosen_cuisine;
-		document.getElementById("price_range").innerHTML = chosen_price;
-		for (var i = 0; i < 10; i++) {
-			image_pos = i % images.length;
-			var identifier = "rest_img" + i;
-			document.getElementById(identifier).src= images[image_pos];
-		}
-		rest_num++;
-		if (rest_num == rests.length) {
-			rest_num = 0;
-		}
-	}
-	function rest_chosen() {
-		var curr_rest = rests[rest_num];
-		var cuisine = cuisines[rest_num];
-		window.location.href = "https://angelsjeffrey.github.io/JumboBites";
-	}
+  function get_rest() {
+  var location = ["Somerville", "Medford"];
+  var prices = [10, 7];
+  var images = ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg/1280px-001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg", "https://www.thespruceeats.com/thmb/xZU__qGyThuUAq8mTosBd1cmLAs=/1333x1000/smart/filters:no_upscale()/juicy-baked-burgers-3052097-7-5b1054308e1b6e0036bc6cd1.jpg"];
+  // if (images.length == 0) {
+  //  images = []
+  // }
+    var chosen_rest = rests[rest_num];
+    var chosen_cuisine = "Cuisine: " + cuisines[rest_num];
+    var chosen_price = "Price: $" + prices[rest_num];
+    var location = "Location: " + location[rest_num];
+    document.getElementById("rest_name").innerHTML = chosen_rest;
+    document.getElementById("cuisine_name").innerHTML = chosen_cuisine;
+    document.getElementById("price_range").innerHTML = chosen_price;
+    document.getElementById("location").innerHTML = location;
+    for (var i = 0; i < 10; i++) {
+      image_pos = i % images.length;
+      var identifier = "rest_img" + i;
+      document.getElementById(identifier).src= images[image_pos];
+    }
+    rest_num++;
+    if (rest_num == rests.length) {
+      rest_num = 0;
+    }
+  }
+  function rest_chosen() {
+    var curr_rest = rests[rest_num];
+    var cuisine = cuisines[rest_num];
+    window.location.href = "https://angelsjeffrey.github.io/JumboBites";
+  }
 
 </script>
 </body>
