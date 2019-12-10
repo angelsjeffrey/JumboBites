@@ -5,45 +5,48 @@
 <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet" type="text/css">
 <link href="common.css" rel="stylesheet" type="text/css">
 <style type="text/css">
+body{
+    margin-top: 20vh;
+}
 .rest_name {
-	color: #3E8EDE;
-	font-size: 3vw;
-	padding: .4vw;
+    color: #3E8EDE;
+    font-size: 3vw;
+    padding: .4vw;
 
 }
 .cuisine_name {
-	color: #3E8EDE;
-	font-size: 2vw;
-	padding: .2vw;
+    color: #3E8EDE;
+    font-size: 2vw;
+    padding: .2vw;
 }
 .price_range {
-	color: #3E8EDE;
-	font-size: 2vw;
-	padding: .2vw;
+    color: #3E8EDE;
+    font-size: 2vw;
+    padding: .2vw;
 
 }
 .rest_img{
-	height: 50vmin;
-	width: 50vmin; 
-	margin: auto;
-	padding: 1vw;
+    height: 50vmin;
+    width: 50vmin; 
+    margin: auto;
+    padding: 1vw;
 }
 .next {
-  background-color: #3E8EDE;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
+    background-color: #3E8EDE;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 #slider {
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
-    width: 70%;
+    width: 40%;
     height: 20px; /* Specified height */
     background: #d3d3d3; /* Grey background */
     outline: none; /* Remove outline */
@@ -53,7 +56,7 @@
 }
 
 #slider:hover {
-    opacity: 1;
+        opacity: 1;
 }
 
 #slider::-webkit-slider-thumb {
@@ -72,7 +75,7 @@
     cursor: pointer; /* Cursor on hover */
 }
 select{
-	text-align: center;
+    text-align: center;
 }
 #cuisine {
     font-family: Roboto, Arial, Helvetica, sans-serif;
@@ -84,28 +87,31 @@ select{
     text-align: center;
 }
 .button {
-  background-color: #3E8EDE;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
+    background-color: #3E8EDE;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.button:hover{
+    background-color: #835c3b; 
 }
 #form_wrapper {
-	color: #3E8EDE;
-	font-size: 2.2vmin;
+    color: #3E8EDE;
+    font-size: 2.2vmin;
 } 
 </style>
 </head>
 <body>
 <ul class="header">
-  <li class="header"><a class="header" href="index.html">JumboBites</a></li>
-  <li class="header"><a class="header" href="statistics.html">Statistics</a></li>
-  <li class="header"><a class="header" href="about_us.html">About Us</a></li>
+    <li class="header"><a class="header" href="index.html">JumboBites</a></li>
+    <li class="header"><a class="header" href="statistics.html">Statistics</a></li>
+    <li class="header"><a class="header" href="about_us.html">About Us</a></li>
 </ul>
 <div id="form_wrapper">
     <form>
@@ -129,9 +135,9 @@ select{
             <option value="Vegetarian">Vegetarian</option>
             <option value="Vietnamese">Vietnamese</option>
         </select><br><br>
-        <h2>Distance from Campus:<h2>
-        <input id="slider" type="range" min="0" max="10">
-        <p><span id="demo"></span> Miles</p><br>
+        <h2>Price<h2>
+        <input id="slider" value= "1" type="range" min="1" max="4">
+        <p><span id="output"></span></p><br>
         <input class = "button" value="Submit" type="reset" onclick="submit_form()"><br><br><br><br><br><br>
     </form>
 </div>
@@ -145,19 +151,23 @@ select{
 </div>
 
 <script>
-	function submit_form() {
-		var cuisine_name = document.getElementById("cuisine").value;
-		var distance = document.getElementById("slider").value;
-		var url = "https://angelsjeffrey.github.io/JumboBites/search.html?cuisine=" + cuisine_name + "&distance=" + distance;
-		window.location.href = url;
-	}
-	var slider = document.getElementById("slider");
-	var output = document.getElementById("demo");	
-    output.innerHTML = slider.value; // Display the default slider value
+    function submit_form() {
+        var cuisine_name = document.getElementById("cuisine").value;
+        var price_range = document.getElementById("slider").value;
+        var url = "https://angelsjeffrey.github.io/JumboBites/search.html?cuisine=" + cuisine_name + "&price=" + price_range;
+        window.location.href = url;
+    }
+    var slider = document.getElementById("slider");
+    var output = document.getElementById("output");
+    output.innerHTML = "$"; // Display the default slider value
 
     // Update the current slider value (each time you drag the slider handle)
     slider.oninput = function() {
-    output.innerHTML = this.value;
+        var dollar_signs = ""
+        for (var i = 0; i < this.value; i++) {
+            dollar_signs += "$"
+        }
+        output.innerHTML = dollar_signs;
 }
 </script>
 </body>
