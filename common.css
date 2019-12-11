@@ -11,7 +11,7 @@ body{
     margin-top: 15vh;
 }
 ul.header {
-  font-size: 4vh;
+  font-size: 4vmin;
   list-style-type: none;
   overflow: hidden;
   background-color: #3E8EDE;
