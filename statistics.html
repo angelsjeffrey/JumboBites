@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Top Chart</title>
+	<script language="javascript" src="SampleRest.json"></script>
 	<link href="common.css" rel="stylesheet" type="text/css">
 	<style>
 
@@ -26,7 +27,6 @@
 						padding: 50px 10px;
 						text-align: center;
 						color: #FFF;
-
 					}
 		ul.clist	{
 						margin: 0;
@@ -40,12 +40,11 @@
 						list-style-type: none; 
 						font-size: 40px;
 					}
-
 		.filter		{
 					
 						display: block;
 						width: 100%;
-						
+						outline:none;
 						background-color: #3E8EDE;
 						padding: 10px 10px;
 						text-align: center;
@@ -58,12 +57,13 @@
 		form.block	{
 						font-size: 30px;
 						text-align: center;
-
 						margin: auto;
 						width: 50%;
+
 					}
 		div.dropdown{
 						margin: 50px;
+
 					}
 		input.filter{
 		
@@ -75,7 +75,6 @@
 						color: #FFF;
 						border-color: #835C3B;
 					}
-
 		
 		
 	</style>
@@ -92,24 +91,24 @@
 	<div class="dropdown">
 	<form class="block">
 		<select id="category" class="filter" style="background-color: #FFF; color: #3E8EDE">
-			<option value="All">All Cuisine</option>
+			<option value="All">All Cuisines</option>
 			<option value="182">Breakfast</option>
-			<option value="168">Burger</option>
-			<option value="25">Chinese</option>
-			<option value="45">French</option>
-			<option value="156">Greek</option>
-			<option value="148">Indian</option>
-			<option value="55">Italian</option>
-			<option value="60">Japanese</option>
-			<option value="67">Korean</option>
-			<option value="70">Mediterranean</option>
-			<option value="73">Mexican</option>
-			<option value="137">Middle Eastern</option>
-			<option value="82">Pizza</option>
-			<option value="998">Salad</option>
-			<option value="89">Spanish</option>
-			<option value="308">Vegetarian</option>
-			<option value="99">Vietnamese</option>
+            <option value="168">Burger</option>
+            <option value="25">Chinese</option>
+            <option value="45">French</option>
+            <option value="156">Greek</option>
+            <option value="148">Indian</option>
+            <option value="55">Italian</option>
+            <option value="60">Japanese</option>
+            <option value="67">Korean</option>
+            <option value="70">Mediterranean</option>
+            <option value="73">Mexican</option>
+            <option value="137">Middle Eastern</option>
+            <option value="82">Pizza</option>
+            <option value="998">Salad</option>
+            <option value="89">Spanish</option>
+            <option value="308">Vegetarian</option>
+            <option value="99">Vietnamese</option>
 		</select>
 		<input type="button" class="filter" onclick="filter()" value="Filter">
 	</form>
@@ -136,6 +135,18 @@
 	</div>
 	
 	<script language="javascript" type="text/javascript">
+
+		
+		function retrieveTop(TopList){
+			count = -1;
+			RestJSON.forEach(function(s) //change RestJSON
+			{
+				if (count < 5){
+					count++;
+					TopList[count] = s.name;//change name
+				}
+			})
+		}
 		function filter(){
 			var cuisine = document.getElementById("category");
 			var selected = cuisine.options[cuisine.selectedIndex].value;
@@ -143,11 +154,13 @@
 			getRest(selected);
 		}
 		function getRest(cuisine){
-				top1 = cuisine + " Test One";
-				top2 = cuisine + " Test Two";
-				top3 = cuisine + " Test Three";
-				top4 = cuisine + " Test Four";
-				top5 = cuisine + " Test Five";
+				var TopList = new Array();
+				retrieveTop(TopList);
+				top1 = TopList[0];
+				top2 = TopList[1];
+				top3 = TopList[2];
+				top4 = TopList[3];
+				top5 = TopList[4];
 				document.getElementById("rest1").innerHTML = top1;
 				document.getElementById("rest2").innerHTML = top2;
 				document.getElementById("rest3").innerHTML = top3;
