@@ -131,7 +131,6 @@ body {
 
 <script type="text/javascript">
   const urlParams = new URLSearchParams(window.location.search);
-  var rest_num=0;
   get_rest();
   $(document).ready(function() {  
       $('.slideshow').cycle({
@@ -150,7 +149,7 @@ body {
         if(data == null) return;
         allRests = JSON.parse(data);
         var count = Object.keys(allRests).length;
-        rest_num = Math.floor(Math.random() * count);
+        var rest_num = Math.floor(Math.random() * count);
         document.getElementById("rest_name").innerHTML = allRests[rest_num]["name"];
         document.getElementById("cuisine_name").innerHTML = allRests[rest_num]["cuisine"];
         document.getElementById("price_range").innerHTML = "Price range: $" + allRests[rest_num]["price_range"];
@@ -175,10 +174,6 @@ body {
     var url = "https://jumbo-bites.herokuapp.com/api/get?data=" + query;
     xmlHttp.open("GET", url, true);
     xmlHttp.send(null);
-    rest_num++;
-      if (rest_num == rests.length) {
-        rest_num = 0;
-      }
   }
   function rest_chosen() {
     //Restaurant data is upload to database here
