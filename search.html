@@ -158,7 +158,7 @@ body {
         for (var i = 0; i < 10; i++) {
           image_pos = i % images.length;
           var identifier = "rest_img" + i;
-          document.getElementById(identifier).src= allRests[rest_num][images][url][image_pos];
+          document.getElementById(identifier).src= allRests[rest_num]["images"]["url"][image_pos];
       }
     }
     obj = new Object();
