@@ -142,17 +142,17 @@
 					//YOUR CODE HERE
 					//xmlHttp.responseText contains the returned data from the server
 					var data = xmlHttp.responseText;
-					if(data == null) return;
-					console.log(data);
-					topRest = JSON.parse(data);
 					var i = 1;
 					for (i < 6) {
 						if (topRest.hasOwnProperty(key)) {
 							id = "rest" + i;
-							document.getElementById(id).innerHTML = " ";
+							document.getElementById(id).innerHTML = i + ". ";
 							i++;
 						}
 					}
+					if(data == null) return;
+					console.log(data);
+					topRest = JSON.parse(data);
 					i = 1;
 					for (var key in topRest) {
 						if (i == 6) break;
