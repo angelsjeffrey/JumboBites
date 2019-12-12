@@ -150,9 +150,12 @@ body {
         allRests = JSON.parse(data);
         var count = Object.keys(allRests).length;
         var rest_num = Math.floor(Math.random() * count);
+        for (var i = 0; i < price_range; i++) {
+            dollar_signs += "$"
+        }
         document.getElementById("rest_name").innerHTML = allRests[rest_num]["name"];
         document.getElementById("cuisine_name").innerHTML = allRests[rest_num]["cuisine"];
-        document.getElementById("price_range").innerHTML = "Price range: $" + allRests[rest_num]["price_range"];
+        document.getElementById("price_range").innerHTML = "Price range: " + dollar_signs;
         document.getElementById("location").innerHTML = allRests[rest_num]["location"];
         var image_num = 1;
           for (var i = 1; i <= 10; i++) {
