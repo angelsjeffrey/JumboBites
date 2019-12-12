@@ -150,6 +150,15 @@
 						if (i == 6) break;
 						if (topRest.hasOwnProperty(key)) {
 							id = "rest" + i;
+							document.getElementById(id).innerHTML = " ";
+							i++;
+						}
+					}
+					i = 1;
+					for (var key in topRest) {
+						if (i == 6) break;
+						if (topRest.hasOwnProperty(key)) {
+							id = "rest" + i;
 							document.getElementById(id).innerHTML = i + ". " + topRest[i-1]["_id"];
 							i++;
 						}
