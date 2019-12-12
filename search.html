@@ -130,16 +130,8 @@ body {
 </div>
 
 <script type="text/javascript">
-  //var json = myjson;
   const urlParams = new URLSearchParams(window.location.search);
-  const cuisine = urlParams.get('cuisine');
-  const price = urlParams.get('price');
-  //do database request
-  //var range = my_json["Restaurants"].length;
-  //var chosen_rest = Math.random() * range / 1;
   var rest_num=0;
-  var rests = ["Picante", "Burgers King"];
-  var cuisines = ["Mexican", "Burgers"];
   get_rest();
     $(document).ready(function() {  
         $('.slideshow').cycle({
@@ -151,9 +143,9 @@ body {
   function get_rest() {
     cuisine_name = urlParams.get("cuisine");
     price_range = urlParams.get("price_range");
-		var xmlHttp = new XMLHttpRequest();
-		xmlHttp.onreadystatechange = function() { 
-			if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+      if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
         var data = xmlHttp.responseText;
         if(data == null) return;
         allRests = JSON.parse(data);
@@ -163,30 +155,25 @@ body {
         document.getElementById("cuisine_name").innerHTML = allRests[rest_num]["cuisine"];
         document.getElementById("price_range").innerHTML = "Price range: $" + allRests[rest_num]["price_range"];
         document.getElementById("location").innerHTML = allRests[rest_num]["location"];
-		}
-		obj = new Object();
-		obj.type = 0;
-		queryObj = new Object();
-		queryObj.cuisine = cuisine_name;
-		queryObj.price_range = price_range;
-		obj.query = queryObj;
-    console.log
-		query = JSON.stringify(obj);
-    console.log(query);
-		var url = "https://jumbo-bites.herokuapp.com/api/get?data=" + query;
-		xmlHttp.open("GET", url, true);
-		xmlHttp.send(null);
-
-    var location = ["Somerville", "Medford"];
-    var prices = [10, 7];
-    var images = ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg/1280px-001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg", "https://www.thespruceeats.com/thmb/xZU__qGyThuUAq8mTosBd1cmLAs=/1333x1000/smart/filters:no_upscale()/juicy-baked-burgers-3052097-7-5b1054308e1b6e0036bc6cd1.jpg"];
-
-      for (var i = 0; i < 10; i++) {
-        image_pos = i % images.length;
-        var identifier = "rest_img" + i;
-        document.getElementById(identifier).src= images[image_pos];
+        for (var i = 0; i < 10; i++) {
+          image_pos = i % images.length;
+          var identifier = "rest_img" + i;
+          document.getElementById(identifier).src= allRests[rest_num][images][url][image_pos];
       }
-      rest_num++;
+    }
+    obj = new Object();
+    obj.type = 0;
+    queryObj = new Object();
+    queryObj.cuisine = cuisine_name;
+    queryObj.price_range = price_range;
+    obj.query = queryObj;
+    console.log
+    query = JSON.stringify(obj);
+    console.log(query);
+    var url = "https://jumbo-bites.herokuapp.com/api/get?data=" + query;
+    xmlHttp.open("GET", url, true);
+    xmlHttp.send(null);
+    rest_num++;
       if (rest_num == rests.length) {
         rest_num = 0;
       }
@@ -194,27 +181,22 @@ body {
   function rest_chosen() {
     //Restaurant data is upload to database here
     var xmlHttp = new XMLHttpRequest();
-		xmlHttp.onreadystatechange = function() { 
-			if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-				console.log(xmlHttp.responseText);
-		}
-		obj = new Object();
-		obj.name = document.getElementById("rest_name").innerHTML;
+    xmlHttp.onreadystatechange = function() { 
+      if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+        console.log(xmlHttp.responseText);
+    }
+    obj = new Object();
+    obj.name = document.getElementById("rest_name").innerHTML;
     obj.cuisine = document.getElementById("cuisine_name").innerHTML;
     obj.price_range = document.getElementById("price_range").innerHTML;
     obj.location = document.getElementById("location").innerHTML;
-		data = JSON.stringify(obj);
-		var url = "https://jumbo-bites.herokuapp.com/api/post";
-		xmlHttp.open("POST", url, true);
+    data = JSON.stringify(obj);
+    var url = "https://jumbo-bites.herokuapp.com/api/post";
+    xmlHttp.open("POST", url, true);
     xmlHttp.setRequestHeader("Content-Type", "application/json");
-		xmlHttp.send(data);
-
-    //Update page to congratulate or something
-    // var curr_rest = rests[rest_num];
-    // var cuisine = cuisines[rest_num];
-    // window.location.href = "https://angelsjeffrey.github.io/JumboBites";
+    xmlHttp.send(data);
+    window.location.href = "https://angelsjeffrey.github.io/JumboBites";
   }
-
 </script>
 </body>
 </html>
