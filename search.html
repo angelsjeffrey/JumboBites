@@ -159,6 +159,7 @@ body {
             var identifier = "rest_img" + i;
             var photo_num = "photo" + image_num;
             if(allRests.hasOwnProperty(photo_num)){
+              alert(i);
               document.getElementById(identifier).src= allRests[rest_num][photo_num];
               image_num++;
             }
