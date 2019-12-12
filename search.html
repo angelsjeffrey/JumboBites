@@ -154,12 +154,20 @@ body {
         document.getElementById("cuisine_name").innerHTML = allRests[rest_num]["cuisine"];
         document.getElementById("price_range").innerHTML = "Price range: $" + allRests[rest_num]["price_range"];
         document.getElementById("location").innerHTML = allRests[rest_num]["location"];
-        //var image_length = allRests[rest_num]["images"]["url"].length;
+        var image_num = 1;
           for (var i = 1; i <= 10; i++) {
-            //image_pos = i % images_length;
             var identifier = "rest_img" + i;
-            var photo_num = "photo" + i;
-            document.getElementById(identifier).src= allRests[rest_num][photo_num];
+            var photo_num = "photo" + image_num;
+            if(thisSession.hasOwnProperty(photo_num)){
+              document.getElementById(identifier).src= allRests[rest_num][photo_num];
+              image_num++;
+            }
+            else{
+              image_num = 1;
+              var photo_num = "photo" + image_num;
+              document.getElementById(identifier).src= allRests[rest_num][photo_num];
+              image_num++;
+            }
           }
     }
     obj = new Object();
