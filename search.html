@@ -99,7 +99,7 @@ body {
     <div class= "rest_details"id= "cuisine_name"></div>
     <div class= "rest_details"id= "price_range"></div>
     <div class= "rest_details" id= "location"></div>
-    <div id="slideshowContainer">
+<!--     <div id="slideshowContainer">
       <div class="slideshow">
         <img class= "rest_img" id="rest_img0"> 
         <img class= "rest_img" id="rest_img1">
@@ -112,12 +112,12 @@ body {
         <img class= "rest_img" id="rest_img8">
         <img class= "rest_img" id="rest_img9">
       </div>
-    </div>
+    </div> -->
   </div>
 <button type="reset" onclick= "rest_chosen()" class="selected_button">Sounds Good!</button>
 <button onclick= "get_rest()" class="next_button">Next Restaurant</button>
 </div>
-<br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <div id = "fl-page-footer-wrap">
   <div id="footer">
       <div id="legal">
@@ -155,11 +155,12 @@ body {
         document.getElementById("cuisine_name").innerHTML = allRests[rest_num]["cuisine"];
         document.getElementById("price_range").innerHTML = "Price range: $" + allRests[rest_num]["price_range"];
         document.getElementById("location").innerHTML = allRests[rest_num]["location"];
-        for (var i = 0; i < 10; i++) {
-          image_pos = i % images.length;
-          var identifier = "rest_img" + i;
-          document.getElementById(identifier).src= allRests[rest_num]["images"]["url"][image_pos];
-      }
+      //   var image_length = allRests[rest_num]["images"]["url"].length;
+      //   for (var i = 0; i < 10; i++) {
+      //     image_pos = i % images_length;
+      //     var identifier = "rest_img" + i;
+      //     document.getElementById(identifier).src= allRests[rest_num]["images"]["url"][image_pos];
+      // }
     }
     obj = new Object();
     obj.type = 0;
