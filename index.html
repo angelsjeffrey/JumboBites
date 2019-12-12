@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Restaurants</title>
+<title>JumboBites</title>
 <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet" type="text/css">
 <link href="common.css" rel="stylesheet" type="text/css">
 <style type="text/css">
@@ -47,7 +47,7 @@ body{
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
     width: 40%;
-    height: 20px; /* Specified height */
+    height: 6vh; /* Specified height */
     background: #d3d3d3; /* Grey background */
     outline: none; /* Remove outline */
     opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
@@ -62,15 +62,14 @@ body{
 #slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
-    width: 20px; /* Set a specific slider handle width */
-    height: 20px; /* Slider handle height */
+    width: 6vh; /* Set a specific slider handle width */
+    height: 6vh; /* Slider handle height */
     background: #4F91CD; /* Green background */
     cursor: pointer; /* Cursor on hover */
 }
-
 #slider::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
+    width: 6vh; /* Set a specific slider handle width */
+    height: 6vh; /* Slider handle height */
     background: #4F91CD; /* Green background */
     cursor: pointer; /* Cursor on hover */
 }
@@ -81,8 +80,8 @@ select{
     font-family: Roboto, Arial, Helvetica, sans-serif;
     outline: none;
     height: 5vh;
-    width: 30%;
-    font-size: 3vh;
+    width: 40%;
+    font-size: 3vmin;
     text-decoration-color: 
     text-align: center;
 }
@@ -134,11 +133,12 @@ select{
             <option value="Spanish">Spanish</option>
             <option value="Vegetarian">Vegetarian</option>
             <option value="Vietnamese">Vietnamese</option>
-        </select><br><br>
-        <h2>Price<h2>
+        </select><br><br><br>
+        Price: <span id="output"></span><br>
         <input id="slider" value= "1" type="range" min="1" max="4">
-        <p><span id="output"></span></p><br>
-        <input class = "button" value="Submit" type="reset" onclick="submit_form()"><br><br><br><br><br><br>
+        <p></p><br>
+        <input class = "button" value="Submit" type="reset" onclick="submit_form()">
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </form>
 </div>
 <div id="footer">
