@@ -117,11 +117,11 @@
 	<div class="chart">
 	<div class="block">
 		<ol class="rlist">
-			<li id="rest1"> Restaurant 1 </li>
-			<li id="rest2"> Restaurant 2 </li>
-			<li id="rest3"> Restaurant 3 </li>
-			<li id="rest4"> Restaurant 4 </li>
-			<li id="rest5"> Restaurant 5 </li>
+			<li id="rest1"></li>
+			<li id="rest2"></li>
+			<li id="rest3"></li>
+			<li id="rest4"></li>
+			<li id="rest5"></li>
 		</ol>
 	</div>
 	</div>
@@ -135,39 +135,38 @@
 	</div>
 	
 	<script language="javascript" type="text/javascript">
-
-		
-		function retrieveTop(TopList){
-			count = -1;
-			RestJSON.forEach(function(s) //change RestJSON
-			{
-				if (count < 5){
-					count++;
-					TopList[count] = s.name;//change name
-				}
-			})
-		}
 		function filter(){
 			var cuisine = document.getElementById("category");
-			var selected = cuisine.options[cuisine.selectedIndex].value;
-			
-			getRest(selected);
-		}
-		function getRest(cuisine){
-				var TopList = new Array();
-				retrieveTop(TopList);
-				top1 = TopList[0];
-				top2 = TopList[1];
-				top3 = TopList[2];
-				top4 = TopList[3];
-				top5 = TopList[4];
-				document.getElementById("rest1").innerHTML = top1;
-				document.getElementById("rest2").innerHTML = top2;
-				document.getElementById("rest3").innerHTML = top3;
-				document.getElementById("rest4").innerHTML = top4;
-				document.getElementById("rest5").innerHTML = top5;
-		}
-		
+			var cuisine_name = cuisine.options[cuisine.selectedIndex].innerHTML;
+			var xmlHttp = new XMLHttpRequest();
+			xmlHttp.onreadystatechange = function() { 
+				if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+					//YOUR CODE HERE
+					//xmlHttp.responseText contains the returned data from the server
+					var data = xmlHttp.responseText;
+					if(data == null) return;
+					console.log(data);
+					topRest = JSON.parse(data);
+					var i = 1;
+					for (var key in topRest) {
+						if (i == 6) break;
+						if (topRest.hasOwnProperty(key)) {
+							id = "rest" + i;
+							document.getElementById(id).innerHTML = i + ". " + topRest[i-1]["_id"];
+							i++;
+						}
+					}
+			}
+			obj = new Object();
+			obj.type = 1;
+			queryObj = new Object();
+			queryObj.cuisine = cuisine_name;
+			obj.query = queryObj;
+			query = JSON.stringify(obj);
+			var url = "https://jumbo-bites.herokuapp.com/api/get?data=" + query;
+			xmlHttp.open("GET", url, true);
+			xmlHttp.send(null);
+		}		
 	</script>
 </body>
 </html>
