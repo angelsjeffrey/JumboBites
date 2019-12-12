@@ -60,6 +60,15 @@ body {
 .next_button:hover {
   background-color: #835c3b;
 }
+#slideshowContainer {
+    width: 50vmin;
+    height: 20vmin;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+}
 .slideshow {
     padding-top: 3vmin;
     display: inline-block;
@@ -92,7 +101,6 @@ body {
     <div class= "rest_details" id= "location"></div>
     <div id="slideshowContainer">
       <div class="slideshow">
-        <img class= "rest_img" id="rest_img0"> 
         <img class= "rest_img" id="rest_img1">
         <img class= "rest_img" id="rest_img2">
         <img class= "rest_img" id="rest_img3">
@@ -102,6 +110,7 @@ body {
         <img class= "rest_img" id="rest_img7">
         <img class= "rest_img" id="rest_img8">
         <img class= "rest_img" id="rest_img9">
+        <img class= "rest_img" id="rest_img10"> 
       </div>
     </div>
   </div>
@@ -124,13 +133,13 @@ body {
   const urlParams = new URLSearchParams(window.location.search);
   var rest_num=0;
   get_rest();
-    $(document).ready(function() {  
-        $('.slideshow').cycle({
-            fx: 'fade',
-            timeout: 1000,
-            pause: 1,
-        });
-    });
+  $(document).ready(function() {  
+      $('.slideshow').cycle({
+          fx: 'fade',
+          timeout: 1000,
+          pause: 1,
+      });
+  });
   function get_rest() {
     cuisine_name = urlParams.get("cuisine");
     price_range = urlParams.get("price_range");
@@ -147,7 +156,7 @@ body {
         document.getElementById("price_range").innerHTML = "Price range: $" + allRests[rest_num]["price_range"];
         document.getElementById("location").innerHTML = allRests[rest_num]["location"];
         //var image_length = allRests[rest_num]["images"]["url"].length;
-          for (var i = 0; i < 10; i++) {
+          for (var i = 1; i <= 10; i++) {
             //image_pos = i % images_length;
             var identifier = "rest_img" + i;
             var photo_num = "photo" + i;
