@@ -159,19 +159,18 @@ body {
             var identifier = "rest_img" + i;
             var photo_num = "photo" + image_num;
             if(allRests.hasOwnProperty(photo_num)){
-              alert(i);
               document.getElementById(identifier).src= allRests[rest_num][photo_num];
               image_num++;
             }
             else{
-              if (i == 1){
-                for (var i = 1; i <= 10; i++) {
-                  var identifier = "rest_img" + i;
-                  var no_image = "https://www.quantabiodesign.com/wp-content/uploads/No-Photo-Available.jpg"
-                  document.getElementById(identifier).src= no_image;
-                }
-                break;
-              }
+              // if (i == 1){
+              //   for (var i = 1; i <= 10; i++) {
+              //     var identifier = "rest_img" + i;
+              //     var no_image = "https://www.quantabiodesign.com/wp-content/uploads/No-Photo-Available.jpg"
+              //     document.getElementById(identifier).src= no_image;
+              //   }
+              //   break;
+              // }
               image_num = 1;
               photo_num = "photo" + image_num;
               document.getElementById(identifier).src= allRests[rest_num][photo_num];
