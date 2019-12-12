@@ -158,13 +158,13 @@ body {
           for (var i = 1; i <= 10; i++) {
             var identifier = "rest_img" + i;
             var photo_num = "photo" + image_num;
-            if(thisSession.hasOwnProperty(photo_num)){
+            if(allRests.hasOwnProperty(photo_num)){
               document.getElementById(identifier).src= allRests[rest_num][photo_num];
               image_num++;
             }
             else{
               image_num = 1;
-              var photo_num = "photo" + image_num;
+              photo_num = "photo" + image_num;
               document.getElementById(identifier).src= allRests[rest_num][photo_num];
               image_num++;
             }
